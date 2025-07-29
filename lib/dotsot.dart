@@ -1,5 +1,7 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'dart:developer' as developer;
+
+extension Dotsot on String {
+  void log([String name = 'LOG']) {
+    developer.log(this, name: name);
+  }
 }

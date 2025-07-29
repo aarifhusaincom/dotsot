@@ -4,9 +4,11 @@ import 'package:dotsot/dotsot.dart';
 
 void main() {
   test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
+    /// Using String
+    "This is a log message in String.".log();
+
+    /// Using Variable
+    final variableName = "This is a variable";
+    variableName.log();
   });
 }
