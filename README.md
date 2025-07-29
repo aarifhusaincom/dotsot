@@ -17,7 +17,7 @@ import 'package:dotsot/dotsot.dart';
 void main() {
   // Default log
   "This is a log message.".dotsot();
-  // Or use String type variable
+  // Or use String type variable name
   variableName.dotshot();
 }
 
