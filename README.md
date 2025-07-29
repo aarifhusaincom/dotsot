@@ -6,7 +6,7 @@ To get started, add the following dependency to your pubspec.yaml:
 
 ```yaml
 dependencies:
-  dotsot: ^0.0.4
+  dotsot: ^0.0.5
 ```
 Run `dart pub get dotsot` or  `flutter pub get dotsot` to install the package.
 

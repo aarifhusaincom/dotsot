@@ -4,11 +4,15 @@ import 'package:dotsot/dotsot.dart';
 
 void main() {
   // Simple log using the extension
-  'App started'.log();
+  'App started'.dotsot();
 
   // Custom tag
-  'Fetching user data...'.log('NETWORK');
+  'Fetching user data...'.dotsot('NETWORK');
 
   // Error message
-  'Something went wrong!'.log('ERROR');
+  'Something went wrong!'.dotsot('ERROR');
+
+  /// Using Variable
+  final variableName = "This is a variable";
+  variableName.dotsot();
 }

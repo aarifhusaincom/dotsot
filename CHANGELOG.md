@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Method name changed to `dotsot`.
+
 ## 0.0.4
 
 * Minor changes to the package.
