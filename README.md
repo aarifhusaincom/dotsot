@@ -30,4 +30,4 @@ This package is licensed under the MIT License.
 ## Maintainers
 
 ![@aarifhusaincom](https://avatars.githubusercontent.com/aarifhusaincom?s=250&v=1)<br>
-# [Aarif Husain](http://github.com/aarifhusaincom)
+# [Aarif Husain](https://github.com/aarifhusaincom)
