@@ -1,6 +1,6 @@
 name: dotsot
-description: "Using this package you can easily log the Strings in to console. It helps to debug the code and increase the readability of the code."
-version: 0.0.5
+description: "This package is used for dotsot development using multiple extensions and custom methods. For accessing just type dot (.) with any object and get premade features."
+version: 0.0.6
 homepage: https://github.com/aarifhusaincom/dotsot
 
 environment:

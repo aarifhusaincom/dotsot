@@ -1,14 +1,15 @@
+import 'package:dotsot/extensions/string_extensions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:dotsot/dotsot.dart';
-
 void main() {
-  test('adds one to input values', () {
-    /// Using String
-    "This is a log message in String.".dotsot();
-
-    /// Using Variable
-    final variableName = "This is a variable";
-    variableName.dotsot();
+  test('capitalize the string', () {
+    final name = 'aarif husain';
+    expect(name.capitalize, 'Aarif husain');
+  });
+  test('repeat the string', () {
+    final name = 'Firoz Ahmed';
+    final address = 'Indore';
+    expect(name.repeat(2), 'Firoz AhmedFiroz Ahmed');
+    expect(address.repeat(2), 'IndoreIndore');
   });
 }
