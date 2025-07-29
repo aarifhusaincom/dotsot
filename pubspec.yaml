@@ -1,6 +1,6 @@
 name: dotsot
 description: "Using this package you can easily log the Strings in to console. It helps to debug the code and increase the readability of the code."
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/aarifhusaincom/dotsot
 
 environment:
