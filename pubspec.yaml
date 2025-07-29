@@ -1,7 +1,7 @@
 name: dotsot
-description: "Easy to print log."
+description: "easy to print log."
 version: 0.0.1
-homepage:
+homepage: https://github.com/aarifhusaincom/dotsot
 
 environment:
   sdk: ^3.8.1
