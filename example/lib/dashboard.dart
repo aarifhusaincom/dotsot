@@ -1,4 +1,4 @@
-import 'package:fire3_22072025/provider/auth_service.dart';
+import 'package:example/provider/auth_service.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/home.dart';
