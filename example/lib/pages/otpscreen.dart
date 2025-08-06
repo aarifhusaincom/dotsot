@@ -43,6 +43,7 @@ class OTPScreen extends StatelessWidget {
               ),
             ),
 
+            /// "[Verify OTP]"
             ElevatedButton(
               onPressed: () async {
                 if (otpController.text.isNotEmpty) {
@@ -50,10 +51,11 @@ class OTPScreen extends StatelessWidget {
                     PhoneAuthCredential credential = await context
                         .read<AuthService>()
                         .credential(otpController.text.toString());
+
                     userCredential = await context
                         .read<AuthService>()
                         .userCredential(credential);
-                    log(userCredential.toString());
+                    // log(userCredential.toString());
                     if (userCredential != null) {
                       ScaffoldMessenger.of(
                         context,
@@ -65,8 +67,26 @@ class OTPScreen extends StatelessWidget {
                         (route) => false,
                       );
                     }
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'invalid-verification-code') {
+                      // ❌ Wrong OTP
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("❌ Wrong OTP. Please try again."),
+                        ),
+                      );
+                    } else {
+                      // ❌ Other Firebase errors
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Error: ${e.message}")),
+                      );
+                    }
                   } catch (e) {
                     log(e.toString());
+                    // ❌ Any other unknown error
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("An unexpected error occurred.")),
+                    );
                   }
                 } else {
                   ScaffoldMessenger.of(

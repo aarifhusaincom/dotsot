@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -43,12 +44,28 @@ class AuthService extends ChangeNotifier {
   ///
   Future<void> verifyPhoneNumber({required String phone}) async {
     await firebaseAuth.verifyPhoneNumber(
-      verificationCompleted: (PhoneAuthCredential credential) {},
-      verificationFailed: (FirebaseAuthException e) {},
-      codeSent: (String verificationId, int? resendToken) {},
+      timeout: const Duration(seconds: 60),
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        try {
+          await firebaseAuth.signInWithCredential(credential);
+          log("✅ Auto-verification successful");
+          notifyListeners();
+        } catch (e) {
+          log("❌ Auto-verification failed: $e");
+        }
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        log("❌ Verification failed: ${e.message}");
+      },
+      codeSent: (String vId, int? resendToken) {
+        verificationId = vId;
+        currentPhone = phone;
+        log("📩 Code sent. Verification ID saved. vId is $vId");
+        notifyListeners();
+      },
       phoneNumber: phone,
-      codeAutoRetrievalTimeout: (String verificationId1) {
-        verificationId = verificationId1;
+      codeAutoRetrievalTimeout: (String vId) {
+        verificationId = vId; // ✅ Fallback storage
       },
     );
     currentPhone = phone;
